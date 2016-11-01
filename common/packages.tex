@@ -102,3 +102,12 @@
     \SetWatermarkAngle{45}
 }{}
 
+% Обозначения и сокращения
+\usepackage[russian]{nomencl}
+\newcommand{\nomdescr}[1]{{--\hskip0.7cm}\parbox[t]{15cm}{\RaggedRight #1}}
+\newcommand{\nomwithdim}[3]{\nomenclature[#1]{#2}{\nomdescr{#3}}}
+\newcommand{\nom}[3][]{\nomwithdim{R#1}{#2}{#3}}
+\makenomenclature
+\renewcommand{\nomname}{%
+		\textmd{Список сокращений и условных обозначений}
+	}
