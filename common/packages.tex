@@ -103,7 +103,7 @@
 }{}
 % Обозначения и сокращения
 \usepackage[russian]{nomencl,ragged2e}
-\newcommand{\nomdescr}[1]{{--\hskip0.7cm}\parbox[t]{15cm}{\RaggedRight #1}}
+\newcommand{\nomdescr}[1]{{\hskip0.3cm---\hskip0.7cm}\parbox[t]{15cm}{\RaggedRight #1}}
 \newcommand{\nomwithdim}[3]{\nomenclature[#1]{#2}{\nomdescr{#3}}}
 \newcommand{\nom}[3][]{\nomwithdim{R#1}{#2}{#3}}
 \makenomenclature
@@ -112,5 +112,8 @@
 \centerline{%
 \normalfont
 \normalsize
-{Сокращения и условные обозначения}}}
+\MakeUppercase{\textmd{Список сокращений и условных обозначений}}
+}
+\vspace{-0.5cm}
+}
 \setlength{\nomitemsep}{-0.25cm}

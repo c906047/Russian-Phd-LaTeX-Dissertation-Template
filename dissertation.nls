@@ -1,0 +1,10 @@
+\begin{thenomenclature} 
+
+ \nomgroup{R}
+
+  \item [{НИИИ}]\begingroup \nomdescr {Формула такая формула, ололо}\nomeqref {1.0}
+		\nompageref{6}
+  \item [{ОЛОЛ}]\begingroup \nomdescr {Это ссылки конечно же.}\nomeqref {1.0}
+		\nompageref{6}
+
+\end{thenomenclature}
