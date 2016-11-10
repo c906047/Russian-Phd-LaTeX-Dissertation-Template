@@ -102,6 +102,14 @@
     \SetWatermarkAngle{45}
 }{}
 
+% Определяем кавычки <<елочки>>
+\usepackage{csquotes}
+\DeclareQuoteStyle{russian}
+{\guillemotleft}{\guillemotright}[0.025em]
+{\quotedblbase}{\textquotedblleft}
+\ExecuteQuoteOptions{style=russian}
+\newcommand{\elki}[1]{\enquote{#1}}
+
 % Обозначения и сокращения
 \usepackage[russian]{nomencl,ragged2e}
 \newcommand{\nomdescr}[1]{{\hskip0.3cm---\hskip0.7cm}\parbox[t]{15cm}{\RaggedRight #1}}
