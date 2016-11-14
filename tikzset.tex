@@ -1,0 +1,202 @@
+%red, green, blue, cyan , magenta, yellow, black, gray, darkgray, lightgray, brown, lime, olive, orange, pink, purple, teal, violet, white.
+\tikzset{
+skip loop/.style={
+to path={-- ++(0,-.5) -| (\tikztotarget)}
+},
+skip loop1/.style={
+to path={-- ++(0,-.8) -| (\tikztotarget)}
+},
+every annotation/.style={%Это аннотация для диаграммы дерева
+fill=red!20
+},
+%root concept/.append style={%Это родительский круг, основа
+%concept,
+%circular drop shadow,
+%font=\footnotesize,
+%concept color=black!100,
+%fill=black!05,
+%line width=1ex,
+%text=black,
+%minimum size=3cm
+%},
+%level 1 concept/.append style={%Это дочерний кружок 1 уровня, т.е. первый от родительского
+%every child/.style={
+%},
+%concept,
+%circular drop shadow,
+%%concept color=blue!60!violet!40,
+%font=\scriptsize,
+%fill=black!05,
+%line width=1ex,
+%text=black,
+%level distance=45mm,%Расстояние между узлами
+%minimum size=1cm
+%},
+%level 2 concept/.append style={%Это дочерний кружок 2 уровня, т.е. первый от родительского
+%every child/.style={
+%},
+%concept,
+%%circular drop shadow,
+%font=\scriptsize,
+%concept color=white!20!orange!50,
+%fill=white,
+%line width=0.5ex,
+%text=black,
+%%clockwise from=180,%По часовой стрелке, начиная от 180 градусов
+%%sibling angle=30,%Дочерний угол (между кружками) 30 градусов
+%level distance=27mm,%Расстояние между узлами
+%minimum size=0.5cm
+%},
+background rectangle/.style=
+{draw=black!80,
+very thick,
+dashed,
+rounded corners
+},
+gkw/.style={rounded corners,fill=green!10!white,text width=11cm,align=justify},
+rkw/.style={rounded corners,fill=red!10!white,text width=11cm,align=justify},
+bkw/.style={rounded corners,fill=blue!10!white,text width=11cm,align=justify},
+block0/.style={%Это полный желтый прямоугольник
+	rounded corners,
+	draw=black!80,
+	top color=white,
+	bottom color=yellow!50!black!20,
+	very thick,
+	drop shadow,
+	font=\footnotesize,
+	text centered,
+	minimum height=2.3cm,
+	minimum width=2cm,
+	text width=2.5cm,
+	inner sep=2mm
+},
+blockcl/.style={%Это полный  прямоугольник без заливки
+% rounded corners,
+	draw=black!80,
+	very thick,
+	font=\footnotesize,
+	text centered,
+	minimum height=2.3cm,
+	minimum width=2cm,
+	text width=2.5cm,
+	inner sep=2mm
+},
+block/.style={%Это полный голубой прямоугольник
+	rounded corners,
+	draw=black!80,
+	top color=white,
+	bottom color=blue!50!black!20,
+	very thick,
+	drop shadow,
+	font=\footnotesize,
+	text centered,
+	minimum height=2.3cm,
+	minimum width=2cm,
+	text width=2.5cm,
+	inner sep=2mm
+},
+blockp/.style={%Это пустой прямоугольник
+	very thick,
+	font=\footnotesize,
+	text centered,
+	minimum height=2.3cm,
+	minimum width=2cm,
+	text width=2.5cm,
+	inner sep=2mm
+},
+blockbukv/.style={%Это прямоугольник-буквица
+	rounded corners,
+	draw=black!80,
+	top color=white,
+	bottom color=blue!50!black!20,
+	very thick,
+	font=\footnotesize,
+	text centered,
+	minimum height=2.3cm,
+	minimum width=2cm,
+	text width=2.5cm,
+	inner sep=2mm
+},
+blockt/.style={
+	node distance=5mm and 55mm,
+	align=center,
+	on chain,
+	on grid,
+	rounded corners,
+	draw=black!80,
+	top color=white,
+	bottom color=blue!50!black!20,
+	very thick,
+	drop shadow,
+	font=\footnotesize,
+	text centered,
+	minimum height=2.3cm,
+	minimum width=2cm,
+	text width=4cm,
+	inner sep=2mm
+},
+block1/.style={
+	rounded corners,
+	draw=black!80,
+	top color=white,
+	bottom color=green!50!black!20,
+	very thick,
+	drop shadow,
+	font=\footnotesize,
+	text centered,
+	minimum height=2.3cm,
+	minimum width=2cm,
+	text width=2.5cm,
+	inner sep=2mm
+},
+block2/.style={
+	rounded corners,
+	draw=black!80,
+	top color=white,
+	bottom color=orange!50!black!20,
+	very thick,
+	drop shadow,
+	font=\footnotesize,
+	text centered,
+	minimum height=2.3cm,
+	minimum width=2cm,
+	text width=2.5cm,
+	inner sep=2mm
+},
+dblock/.style={
+	node distance=5mm,
+	on chain,
+	on grid,
+	diamond,
+	aspect=2,
+	draw=black!80,
+	top color=white,
+	bottom color=orange!50!black!20,
+	very thick,
+	drop shadow,
+	font=\footnotesize,
+	text centered,
+	minimum height=2.3cm,
+	minimum width=2cm,
+	text width=2.5cm,
+	inner sep=2mm
+},
+cblock/.style={
+	circle,
+	draw=black!80,
+	left color=green!60!blue!50,
+	right color=orange!80!blue!50,
+	very thick,
+	drop shadow,
+	font=\Large,
+	text centered,
+	minimum height=2.3cm,
+	minimum width=2cm,
+	text width=2.5cm,
+	inner sep=2mm
+},
+line/.style={-latex,draw,rounded corners,thick},
+line_plain/.style={draw,rounded corners,thick},
+every join/.style={line},
+line dec/.style={decoration={pre length=#1,post length=#1}},
+}

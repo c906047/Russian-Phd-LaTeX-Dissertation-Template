@@ -1,0 +1,413 @@
+\documentclass[a4paper,14pt]{extreport}
+\usepackage{polyglossia}
+\setdefaultlanguage{russian}
+\setotherlanguages{english,german}
+\usepackage[labelsep=period, nooneline]{caption} % Заменить умолчальное разделение ':' на '.'в подписях к рисункам и таблицам
+\defaultfontfeatures{Mapping=tex-text}% Для работы кавычек, тире и т.д.
+%\setmainfont{Times New Roman} % Основной шрифт документа
+%\setmainfont{CharterITC}
+\setmainfont{CMU Serif Roman}
+\newfontfamily{\cyrillicfonttt}{CMU Serif Roman}
+
+%Поиск в пдф-документе
+\usepackage{cmap}
+
+% Пакеты для xelatex
+\usepackage{xunicode, xltxtra}
+
+% Работа с геометрией страницы
+\usepackage{geometry}
+
+% Дополнительная работа с математикой
+\usepackage{mathtext} % Русские буквы в формулах
+\usepackage{amsmath, amssymb, amsthm, amsfonts, mathtools} % AMS
+\usepackage{icomma} % "Умная" запятая: $0,2$ --- число, $0, 2$ --- перечисление
+
+% Шрифты
+\usepackage{euscript} % Шрифт Евклид
+\usepackage{mathrsfs} % Красивый матшрифт
+
+% Пакеты для работы с таблицами
+\usepackage{verbatim, array, booktabs, multirow, makecell, tabu, longtable, xcolor, colortbl, wrapfig}
+
+% Для печати в несколько колонок
+\usepackage{multicol}
+
+% Для двойной горизонтальной линии в таблицах
+\usepackage{hhline}
+
+% Для подключения eps графики
+\usepackage{epstopdf}
+
+% Для пробелов в названиях и путях к картинкам
+\usepackage{graphicx}
+\usepackage[space]{grffile}
+
+% Неразобранные, но нужные пакеты (подключались по мере необходимости для выполнения разных задач)
+\usepackage{titletoc, rotating, fp, fontspec, setspace, cite, tikz, tocloft, ifpdf, kvoptions, subfig, latexsym, listings, pgfplots, pgfpages, xifthen, ulem, float, indentfirst, enumerate, titlesec, enumitem, todonotes, lettrine, lipsum, pdflscape, pdfpages, csquotes, ragged2e, lastpage, etoolbox}
+
+% Библиотеки для графического пакета tikz
+\usetikzlibrary{intersections, fit, automata, calc, trees, positioning, arrows, chains, shapes.geometric, decorations.pathreplacing, decorations.pathmorphing, shapes, matrix, shapes.symbols, shadows, backgrounds, mindmap, shapes.gates.logic.US, trees, positioning, circuits.logic.IEC, shapes.gates.logic.IEC, shapes.geometric
+}
+
+% Подключаем графический пакет для рисования диаграмм
+\usepgfmodule{plot}
+
+% Задаем геометрию полей страницы
+\geometry{left=2cm}
+\geometry{right=1cm}
+\geometry{top=2cm}
+\geometry{bottom=2cm}
+
+% Выводит в Содержании section ЗАГЛАВНЫМИ буквами
+%\usepackage{regexpatch}
+%\makeatletter
+%\xpatchcmd*{\@sect}{\fi#7}{\fi\@nameuse{format#1}{#7}}{}{}
+%
+%%%% for sections and subsections we want uppercase
+%\protected\def\formatsection{\MakeUppercase}
+%\protected\def\formatsubsection{\MakeUppercase}
+%
+%%%% the other titles are left unchanged
+%\let\formatsubsubsection\@firstofone
+%\let\formatparagraph\@firstofone
+%\let\formatsubparagraph\@firstofone
+%
+%%%% the following is necessary only if hyperref is used
+%\AtBeginDocument{%
+%  \pdfstringdefDisableCommands{%
+%    \let\formatsection\@firstofone
+%    \let\formatsubsection\@firstofone
+%  }%
+%}
+%\makeatother
+
+
+
+% Настройка Содержания
+\gappto\captionsrussian{\renewcommand{\contentsname}{Оглавление}}
+\renewcommand{\cfttoctitlefont}{\hspace{0.38\textwidth}\MakeUppercase
+}
+\renewcommand{\cftbeforetoctitleskip}{-2em}% Отступ от верхнего края до Содержания
+\renewcommand{\cftaftertoctitle}{\mbox{}\hfill \\ \mbox{}\hfill{}\vspace{-2.5em}}% Отступ от Содержания до текста
+
+% Запрещаем переносы в Содержании
+\makeatletter
+\renewcommand{\@tocrmarg}{2.55em plus1fil}
+\makeatother
+\setcounter{secnumdepth}{3} % глубина глав 2 (чаптер, секшн, субсекшн)
+\setcounter{tocdepth}{3} % глубина оглавления
+
+% Обозначения и сокращения
+\usepackage[russian]{nomencl}
+\newcommand{\nomdescr}[1]{{--\hskip0.7cm}\parbox[t]{15cm}{\RaggedRight #1}}
+\newcommand{\nomwithdim}[3]{\nomenclature[#1]{#2}{\nomdescr{#3}}}
+\newcommand{\nom}[3][]{\nomwithdim{R#1}{#2}{#3}}
+\makenomenclature
+\renewcommand{\nomname}{%
+\vspace{-3.5cm}
+\centerline{%
+\normalfont
+\normalsize
+\MakeUppercase{\textmd{Список сокращений и условных обозначений}}
+}
+\vspace{-0.5cm}
+}
+\setlength{\nomitemsep}{-0.25cm}
+
+% Определяем кавычки <<елочки>>
+\DeclareQuoteStyle{russian}
+{\guillemotleft}{\guillemotright}[0.025em]
+{\quotedblbase}{\textquotedblleft}
+\ExecuteQuoteOptions{style=russian}
+\newcommand{\elki}[1]{\enquote{#1}}
+
+% Списки --, 1. и а) с отступом первой строки
+% Нумерация + вложенная нумерация
+\renewcommand{\alph}[1]{\asbuk{#1}} 
+\setlist{nolistsep}
+\setitemize[1]{label=--, fullwidth, itemindent=\parindent, listparindent=\parindent}
+\setitemize[2]{label=--, fullwidth, itemindent=\parindent, listparindent=\parindent, leftmargin=\parindent}
+\setitemize[3]{label=--, fullwidth, itemindent=\parindent, listparindent=\parindent, leftmargin=\parindent}
+\setenumerate[1]{label=\arabic*., fullwidth, itemindent=\parindent, listparindent=\parindent}
+\setenumerate[2]{label=\arabic{enumi}.\arabic{enumii}, fullwidth, itemindent=\parindent, listparindent=\parindent, leftmargin=\parindent}
+\setenumerate[3]{label=\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}, fullwidth, itemindent=\parindent, listparindent=\parindent, leftmargin=\parindent}
+\setenumerate[4]{label=\alph*), fullwidth, itemindent=\parindent, 
+listparindent=\parindent, leftmargin=\parindent}
+
+% Формат подрисуночной (табличной, формульной) надписи и их нумерация
+\makeatletter
+\@addtoreset{table}{section}
+\@addtoreset{figure}{section}
+\makeatother
+\addto\captionsrussian{\def\figurename{Рисунок}
+\renewcommand{\tablename}{Таблица}}
+\renewcommand{\thefigure}{\thesection.\arabic{figure}}
+\renewcommand{\thetable}{\thesection.\arabic{table}}
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+%\setlength{\intextsep}{5mm}%Увеличиваем расстояние между основным текстом и рисунком под ним
+%\setlength\belowcaptionskip{-5mm}%Уменьшаем расстояние между основным текстом и рисунком над ним
+\RequirePackage{caption}
+\DeclareCaptionLabelFormat{fullparens}{\bothIfFirst{#1}{~}#2}
+\captionsetup[figure]{
+format=plain,
+indention=0.7cm,
+justification=centering,
+labelsep=endash,
+skip=5mm
+}
+\captionsetup[table]{
+format=plain,
+font={footnotesize},
+labelformat=fullparens,
+labelsep=endash,
+%labelfont=it,
+%textfont=bf,
+justification=raggedright,
+singlelinecheck=false
+}
+\makeatletter
+\setlength\abovecaptionskip{2\p@}
+\setlength\belowcaptionskip{1\p@}
+\makeatother
+
+% Переопределение списков itemize и enumerate, убирающее расстояния между строками и абзацами
+\makeatletter
+\renewcommand{\@listI}{%
+\topsep=0pt }
+\makeatother
+
+\makeatletter
+\let\old@itemize=\itemize
+\def\itemize{\old@itemize
+\setlength{\itemsep}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\leftskip}{0pt}
+}
+\makeatother
+
+\makeatletter
+\let\old@enumerate=\enumerate
+\def\enumerate{\old@enumerate
+\setlength{\itemsep}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\leftskip}{0pt}
+}
+\makeatother
+
+
+%%% Определение subsubsubsection
+\makeatletter
+\newcommand{\subsubsubsection}[1]{\refstepcounter{subsubsubsection}
+        \vspace{15pt plus 7pt minus 3pt}\nobreak\par%
+        {\thesubsubsubsection\space #1}%
+        \addcontentsline{toc}{subsubsubsection}{\thesubsubsubsection\space #1}%
+        \par\vspace{2ex}}
+\newcounter {subsubsubsection}[subsubsection]
+
+\renewcommand\thesubsubsubsection{\thesubsubsection .\@arabic\c@subsubsubsection}
+ \makeatother
+ 
+ 
+% Названия глав располагаем с красной строки и устанавливаем их размер и отступы до и после названия
+\makeatletter
+%\renewcommand\section{
+%\@startsection {section}{1}{\parindent}{\z@}%
+%{2ex \@plus.2ex}%
+%{\hyphenpenalty=10000\normalfont\normalsize
+%\vspace{4ex}
+%\MakeUppercase}
+%}
+\def\section{\@dblarg\@section}
+\def\@section[#1]#2{\refstepcounter{section}%
+        {\newpage\nobreak\hspace*{.5cm}\raggedright
+        \llap{\thesection\space\space}\uppercase{#2}}%
+        \addcontentsline{toc}{section}{\thesection\space #1}\par\nobreak}
+\renewcommand{\subsection}[1]{\refstepcounter{subsection}
+        \vspace{15pt plus 7pt minus 3pt}\nobreak\par%
+        {\thesubsection\space #1}%
+        \addcontentsline{toc}{subsection}{\thesubsection\space #1}%
+        \par\vspace{2ex}}
+\renewcommand{\subsubsection}[1]{\refstepcounter{subsubsection}
+        \vspace{15pt plus 7pt minus 3pt}\nobreak\par%
+        {\thesubsubsection\space #1}%
+        \addcontentsline{toc}{subsubsection}{\thesubsubsection\space #1}%
+        \par\vspace{2ex}}
+
+\makeatother
+
+% Убираем точки после цифры в главах и подглавах
+\makeatletter
+\renewcommand\thechapter{\@arabic\c@chapter}
+\renewcommand\thesection{\@arabic\c@section}
+\gappto\russian@capsformat{\renewcommand{\postsection}{\@aftersepkern}}
+\renewcommand\thesubsection{\@arabic\c@section.\@arabic\c@subsection}
+\gappto\russian@capsformat{\renewcommand{\postsubsection}{\@aftersepkern}}
+\renewcommand\thesubsubsection{\@arabic\c@section.\@arabic\c@subsection.\@arabic\c@subsubsection}
+\gappto\russian@capsformat{\renewcommand{\postsubsubsection}{\@aftersepkern}}
+\makeatother
+
+
+% Задаем отступ от нумерации названия глав и подглав в Содержании
+\makeatletter
+\newcommand{\l@likechapter}{\@dottedtocline{1}{1em}{1em}}
+\renewcommand{\l@chapter}{\@dottedtocline{1}{1em}{1em}}
+\renewcommand*\l@section{\@dottedtocline{1}{1em}{1em}}%
+\renewcommand*\l@subsection{\@dottedtocline{1}{2.0em}{1.7em}}%
+\renewcommand*\l@subsubsection{\@dottedtocline{1}{3.6em}{2.4em}}%
+\newcommand*\l@subsubsubsection{\@dottedtocline{1}{6em}{2.4em}}%
+\makeatother
+
+
+% Работа с датой
+\usepackage[ddmmyyyy]{datetime}
+\renewcommand{\dateseparator}{.}
+\def\daterussian{%
+\def\mon{\ifcase\month\or января\or февраля\or марта 
+\or апреля\or мая\or июня\or июля\or августа\or сентября 
+\or октября\or ноября\or декабря\fi\space}%
+}
+
+
+
+% Создание счетчиков страниц, разделов, рисунков, таблиц, приложений
+\usepackage[square,numbers,sort&compress]{natbib}
+
+\newcounter{reference}
+\pretocmd{\bibitem}{\addtocounter{reference}{1}}{}{}
+
+\usepackage[chapter,     %
+            page,         %
+            section,     %
+            figure,      %
+            table,       %
+            reference,   %
+            ]{totalcount}
+
+% Оставил этот пример. Из него можно вытянуть дополнительные счетчики, если они понадобятся (например можно сделать счетчик чего-то в документе отдельно от приложений)
+%\newcounter{totfigures}
+%\newcounter{tottables}
+%\newcounter{totsections}
+%\newcounter{totreferences}
+%\newcounter{totchapter}
+%\makeatletter
+%\AtEndDocument{%
+%\addtocounter{totsections}{\value{section}}%
+%\addtocounter{totfigures}{\value{figure}}%
+%\addtocounter{tottables}{\value{table}}%
+%\addtocounter{totchapter}{\value{chapter}}%
+%\immediate\write\@mainaux{%
+%\string\gdef\string\totsec{\number\value{totsections}}%
+%\string\gdef\string\totfig{\number\value{totfigures}}%
+%\string\gdef\string\tottab{\number\value{tottables}}%
+%\string\gdef\string\totref{\number\value{totreferences}}%
+%\string\gdef\string\totpril{\number\value{totchapter}}%
+%}%
+%}
+%\makeatother
+%\pretocmd{\section}{\addtocounter{totfigures}{\value{figure}}}{}{}
+%\pretocmd{\section}{\addtocounter{tottables}{\value{table}}}{}{}
+%\pretocmd{\chapter}{\addtocounter{totfigures}{\value{figure}}}{}{}
+%\pretocmd{\chapter}{\addtocounter{tottables}{\value{table}}}{}{}
+%\pretocmd{\bibitem}{\addtocounter{totreferences}{1}}{}{}
+%\pretocmd{\chapter}{\addtocounter{totchapter}{0}}{}{}
+%\pretocmd{\section}{\addtocounter{totsections}{1}}{}{}% При включении Приложения раскомментировать
+
+
+% Создание своего оформления для произвольной главы
+\newcommand{\empline}{\mbox{}\newline}
+\newcommand{\likechapter}[1]{
+\newpage
+\begin{center}
+\MakeUppercase{#1}
+\end{center}
+\vspace{-1cm}
+\empline}
+
+
+
+% Настройка Приложений
+\usepackage[title,titletoc]{appendix}
+%\newcommand{\empline}{\mbox{}\newline} % пустая строка
+\newcommand{\append}[1]{%
+    \clearpage
+    \refstepcounter{chapter}
+    \begin{center}
+       \MakeUppercase{%
+       \appendixname~\Asbuk{chapter}}
+    \end{center}
+    \begin{center}{#1}\end{center}
+    \renewcommand{\thefigure}{\Asbuk{chapter}.\arabic{figure}}
+	\renewcommand{\thetable}{\Asbuk{chapter}.\arabic{table}}
+	\renewcommand{\theequation}{\Asbuk{chapter}.\arabic{equation}}
+	\renewcommand{\thesubsection}{\Asbuk{chapter}.\arabic{subsection}}
+	\renewcommand{\thesubsubsection}{\Asbuk{chapter}.\arabic{subsection}.\arabic{subsubsection}}
+	\renewcommand{\thesubsubsubsection}{\Asbuk{chapter}.\arabic{subsection}.\arabic{subsubsection}.\arabic{subsubsubsection}}
+    \empline
+    %В приложениях эта строка вставлена, поэтому здесь коментим
+    %\addcontentsline{toc}{chapter}{\Asbuk{chapter}\hspace{0em}~#1}
+    }
+
+
+% Создание примечания
+\newcommand{\prim}{\todo[color=green!40,inline,caption={\textit{Примечание}}]}
+
+%Переносы вкл. и 1.5 интервала выкл.
+\newcommand{\pereodin}{\hyphenpenalty=100\singlespacing}
+
+%%% Настройка библиографии
+\makeatletter
+%Стиль библиографических ссылок БибТеХа - нумеровать в порядке упоминания в тексте
+\bibliographystyle{%
+%ugost2008%
+BibTeX-Styles/ugost2008%
+%BibTeX-Styles/utf8gost71u%
+}
+%Заменяем квадратные скобки в списке литературы на цифру без точки, если нужна точка, то ставим ее после {#1.}
+\renewcommand{\@biblabel}[1]{#1}
+\makeatother
+\newcommand\mybibname{Список использованных источников}
+% bibsection используется в пакете natbib
+\renewcommand\bibsection{%
+\newpage\centering\vskip2cm
+\noindent\normalsize\MakeUppercase{\mybibname}%
+\markboth{\MakeUppercase{\mybibname}}{\MakeUppercase{\mybibname}}%
+\addcontentsline{toc}{section}{Список использованных источников}
+\vskip1cm}
+
+\sloppy%Перенос слов, которые не убираются в строке (вылезают на поля)
+\clubpenalty=10000 % Запрещаем разрыв страницы после первой строки абзаца
+\widowpenalty=10000 % Запрещаем разрыв страницы после последней строки абзаца
+\brokenpenalty=10000 % Подавление переносов на другую страницу
+\hyphenpenalty=10000 % Запрещаем переносы
+\parfillskip=0pt plus .95\textwidth % Последняя строка абзаца не будет слишком короткой
+\parindent=1cm% Абзацный отступ
+%\renewcommand{\baselinestretch}{1.3}% Межстрочный интервал
+\onehalfspacing
+\renewcommand{\ge}{\geqslant}
+\renewcommand{\le}{\leqslant}
+\righthyphenmin=2 % Минимальное число символов при переносе - 2.
+\tabulinesep=1mm%Расстояние между нижней чертой и содержимым в ячейке таблицы
+\newcommand\marker[2]{{\fboxsep=0pt\colorbox{green!50}{\strut }}}
+\usepackage{hyperref}
+\usepackage{hyperxmp}
+\hypersetup
+{
+    pdfauthor={User},
+    pdfcreator={Microsoft® Word 2010},
+    pdfproducer={Microsoft® Word 2010}
+}
+\usepackage{fancyhdr}
+
+%%% Переопределяем шрифт в заголовках таблиц
+%\renewcommand\theadset{\def\arraystretch{.75}}
+\renewcommand\theadfont{\bfseries\footnotesize}
+%%% Уменьшаем вертикальные расстояния в заголовках таблиц сверху и снизу от подписи
+\renewcommand\theadgape{\Gape[0pt][0pt]}
+
+%%% Временно
+\makeatletter
+\newcommand{\verbatimfont}[1]{\renewcommand{\verbatim@font}{\ttfamily#1}}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
