@@ -353,8 +353,11 @@ singlelinecheck=false
     }
 
 
-% Создание примечания
+% Создание примечания зеленым
 \newcommand{\prim}{\todo[color=green!40,inline,caption={\textit{Примечание}}]}
+
+% Тодо делаем красным
+\DeclareRobustCommand{\todo}{\textcolor{red}}
 
 %Переносы вкл. и 1.5 интервала выкл.
 \newcommand{\pereodin}{\hyphenpenalty=100\singlespacing}
