@@ -175,6 +175,17 @@ singlelinecheck=false
 \setlength\belowcaptionskip{1\p@}
 \makeatother
 
+
+% Убираем связанность номера формулы с номером главы/раздела 0 --- есть зависимость от номера главы, 1 --- нет.
+\newcounter{contnumfig}
+
+\setcounter{contnumfig}{1}
+
+\ifnumequal{\value{contnumfig}}{1}{%
+\renewcommand{\thefigure}{\arabic{figure}}
+\renewcommand{\thetable}{\arabic{table}}
+\renewcommand{\theequation}{\arabic{equation}}}{}
+
 % Переопределение списков itemize и enumerate, убирающее расстояния между строками и абзацами
 \makeatletter
 \renewcommand{\@listI}{%
@@ -367,7 +378,7 @@ singlelinecheck=false
 %Стиль библиографических ссылок БибТеХа - нумеровать в порядке упоминания в тексте
 \bibliographystyle{%
 %ugost2008%
-../BibTeX-Styles/ugost2008%
+BibTeX-Styles/ugost2008%
 %BibTeX-Styles/utf8gost71u%
 }
 %Заменяем квадратные скобки в списке литературы на цифру без точки, если нужна точка, то ставим ее после {#1.}
