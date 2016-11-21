@@ -4,128 +4,28 @@
 
 \setmainfont{Times New Roman}
 
-\parindent=3.25cm
-
 
 \begin{document}
-%\section{Математические модели взаимодействия приложения с алгоритмами синхронизации}
-%
-%\subsection{Взаимодействие приложения со строго синхронным АС}
-%
-%\begin{equation}
-%\label{eq:АС с синхронизацией взаимодействий}
-%\left\{
-%\begin{aligned}
-%x_{i+1}^n & = \begin{cases}
-% x_{i}^n = x_i^n + \xi_i^n, & \text{если $x_i^n=X_i$} \\
-% x_{i}^n, & \text{иначе}
-% \end{cases}\\
-%X_{i+1}^n & = \min\limits_{n=\overline{1,N}}(x_{i+1}^n)\\
-%x_{0}^n&=0\\
-%X_{0}^n&=0\\
-%n & = \overline{1, N}
-%\end{aligned}
-%\right.
-%\end{equation}
-%
-%\begin{figure}[H]
-%\centering
-%\includegraphics[scale=0.65]{графика/1.1.png}
-%
-%\caption{Продвижение времени}
-%\label{fig:выполнение модели}
-%\end{figure}
-%
-%
-%\begin{figure}[H]
-%\centering
-%\includegraphics[scale=0.7]{графика/1.2.png}
-%
-%\caption{Продвижение времени}
-%\label{fig:выполнение модели}
-%\end{figure}
-%
-%\subsection{Взаимодействие приложения с консервативным АС}
-%
-%\begin{equation}
-%\label{eq:АС с синхронизацией взаимодействий}
-%\left\{
-%\begin{aligned}
-%x_{i+1}^n & = x_i^n + \xi_i^n F^n(i)\\
-%F^n(i) & = \begin{cases}
-% 1, & \text{если $\forall m \in M^n : x_i^n + \xi_i^n \leqslant x_i^m + \xi_i^m$} \\
-% 0, & \text{иначе}
-% \end{cases}\\
-%x_0^n & = 0\\
-%n & = \overline{1, N}
-%\end{aligned}
-%\right.
-%\end{equation}
-%
-%\begin{figure}[H]
-%\centering
-%\includegraphics[scale=0.65]{графика/2.1.png}
-%
-%\caption{Продвижение времени}
-%\label{fig:выполнение модели}
-%\end{figure}
-%
-%
-%\begin{figure}[H]
-%\centering
-%\includegraphics[scale=0.65]{графика/2.2.png}
-%
-%\caption{Продвижение времени}
-%\label{fig:выполнение модели}
-%\end{figure}
-%
-%
-%\subsection{Взаимодействие приложения с оптимистическим АС}
-%
-%\begin{equation}
-%\label{eq:АС с синхронизацией взаимодействий}
-%\left\{
-%\begin{aligned}
-%x_{i+1}^n & = x_i^n + \xi_i^n-\max\limits_{m=\overline{1, N}}((x_i^n-x_i^m)I_i^{m\rightarrow n}I_i^{x_i^m<x_i^n})\\
-%x_0^n & = 0\\
-%n & = \overline{1, N}
-%\end{aligned}
-%\right.
-%\end{equation}
-%
-%\begin{figure}[H]
-%\centering
-%\includegraphics[scale=0.65]{графика/3.1.png}
-%
-%\caption{Продвижение времени}
-%\label{fig:выполнение модели}
-%\end{figure}
-%
-%
-%\begin{figure}[H]
-%\centering
-%\includegraphics[scale=0.65]{графика/3.2.png}
-%
-%\caption{Продвижение времени}
-%\label{fig:выполнение модели}
-%\end{figure}
-%
-%Вывод:
-%Согласно выдвинутого ранее критерия эффективности АС, лучшим для данного приложения (модели) является тот АС, который быстрее других продвигает её модельное время.
-%
-%В результате проведенных экспериментов с моделями взаимодействия исследуемого приложения с алгоритмами синхронизации, можно сделать вывод, что лучшим среди исследованных строго синхронного, консервативного и оптимистического АС является последний, т.к. продвигает модельное время на большую, чем остальные АС величину.
-\raggedright{УДК~004.67}
-\vspace{0.5cm}
 
-\centering
-\textbf{\MakeUppercase{Алгоритм выбора оптимальной синхронизации процессов в распределенной имитационной системе}}
+%\raggedright{УДК~004.67}
+%
+%\justifying
+%
+%\vspace{0.5cm}
 
-\vspace{0.5cm}
+\section{Алгоритм выбора оптимальной синхронизации процессов в распределенной имитационной системе}
+
+%\centering
+%\textbf{\MakeUppercase{Алгоритм выбора оптимальной синхронизации процессов в распределенной имитационной системе}}
+
+%\vspace{0.5cm}
+
 Д.В.~Пантюхов
 
-\justifying
-\vspace{0.5cm}
+%\justifying
+%\vspace{0.5cm}
 В статье анализируются консервативный и оптимистический алгоритмы синхронизации локальных процессов в распределенных системах имитации. Рассматривается подход к выбору оптимального алгоритма синхронизации посредством анализа характеристик локальных процессов и переключения типа алгоритма синхронизации на оптимальный в зависимости от типа процесса. Предложен алгоритм анализа характеристик локальных процессов и алгоритм выбора оптимальной синхронизации.
+
 Ключевые слова: имитационное моделирование, локальный процесс, модельное время, алгоритм синхронизации, консервативный алгоритм, оптимистический алгоритм.
 
 \vspace{0.5cm}
@@ -133,8 +33,7 @@
 \centering
 \textbf{\MakeUppercase{ALGORITHM OF SELECTING THE OPTIMAL SYNCHRONIZATION OF PROCESSES IN DISTRIBUTED SIMULATION SYSTEMS}}
 
-\vspace{\theintvl\curtextsize}
-%\vspace{0.5cm}
+\vspace{0.5cm}
 
 D.V. Pantyuhov
 
@@ -142,8 +41,9 @@ D.V. Pantyuhov
 
 \justifying
 
-\textit{The article analyzes the conservative and optimistic synchronization algorithms, the approach to the choice of optimal synchronization algorithm local processes during simulation by analyzing their characteristics and the type of switching to the optimal synchronization algorithm, depending on the type of process. An algorithm for the analysis of the characteristics of local processes and optimal synchronization algorithm selection.
-Keywords: simulation, the local process model time synchronization algorithm, conservative algorithm, optimistic algorithm.}
+\textit{The article analyzes the conservative and optimistic synchronization algorithms, the approach to the choice of optimal synchronization algorithm local processes during simulation by analyzing their characteristics and the type of switching to the optimal synchronization algorithm, depending on the type of process. An algorithm for the analysis of the characteristics of local processes and optimal synchronization algorithm selection.}
+
+\textit{Keywords: simulation, the local process model time synchronization algorithm, conservative algorithm, optimistic algorithm.}
 
 \vspace{0.5cm}
 

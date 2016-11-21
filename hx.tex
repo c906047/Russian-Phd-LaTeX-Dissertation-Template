@@ -1,4 +1,8 @@
 \documentclass[a4paper,14pt]{extreport}
+\newlength{\curtextsize}
+\makeatletter 
+\setlength{\curtextsize}{\f@size pt}
+\makeatother
 \usepackage{polyglossia}
 \setdefaultlanguage{russian}
 \setotherlanguages{english,german}
@@ -63,30 +67,83 @@
 \usepackage{csquotes}
 %\MakeOuterQuote{"}
 
-% Выводит в Содержании section ЗАГЛАВНЫМИ буквами
-%\usepackage{regexpatch}
+
+
+% Названия глав располагаем с красной строки и устанавливаем их размер и отступы до и после названия
+\makeatletter
+%\def\section{\@dblarg\@section}
+%\def\@section[#1]#2{\refstepcounter{section}%
+%        \vspace{28pt plus 1cm minus 7pt}\par\pagebreak[3]%
+%        \hangindent=\parindent
+%        {\nobreak\noindent\hspace*{\hangindent}\raggedright\bf
+%        \llap{\thesection\space}\lowercase{#2}}%
+%        \addcontentsline{toc}{section}{\thesection\space #1}\par\nobreak}
+%
+%\def\section{\@dblarg\@section}
+%\def\@section[#1]#2{\refstepcounter{section}%
+%        {\newpage\nobreak\hspace*{.5cm}\raggedright
+%        \llap{\thesection\space\space}\uppercase{#2}}%
+%        \addcontentsline{toc}{section}{\thesection\space #1}\par\nobreak}
+
+\def\section{\@dblarg\@section}
+\def\@section[#1]#2{\refstepcounter{section}%
+        {\newpage\nobreak\hspace*{.5cm}\raggedright
+        \llap{\thesection\space\space}\uppercase{#2}}%
+        \addcontentsline{toc}{section}{\thesection\space #1}\par\nobreak}
+\renewcommand{\subsection}[1]{\refstepcounter{subsection}
+        \vspace{15pt plus 7pt minus 3pt}\nobreak\par%
+        {\thesubsection\space #1}%
+        \addcontentsline{toc}{subsection}{\thesubsection\space #1}%
+        \par\vspace{2ex}}
+\renewcommand{\subsubsection}[1]{\refstepcounter{subsubsection}
+        \vspace{15pt plus 7pt minus 3pt}\nobreak\par%
+        {\thesubsubsection\space #1}%
+        \addcontentsline{toc}{subsubsection}{\thesubsubsection\space #1}%
+        \par\vspace{2ex}}
+
+\makeatother
+
+% Ставим или убираем номера глав
+
 %\makeatletter
-%\xpatchcmd*{\@sect}{\fi#7}{\fi\@nameuse{format#1}{#7}}{}{}
-%
-%%%% for sections and subsections we want uppercase
-%\protected\def\formatsection{\MakeUppercase}
-%\protected\def\formatsubsection{\MakeUppercase}
-%
-%%%% the other titles are left unchanged
-%\let\formatsubsubsection\@firstofone
-%\let\formatparagraph\@firstofone
-%\let\formatsubparagraph\@firstofone
-%
-%%%% the following is necessary only if hyperref is used
-%\AtBeginDocument{%
-%  \pdfstringdefDisableCommands{%
-%    \let\formatsection\@firstofone
-%    \let\formatsubsection\@firstofone
-%  }%
-%}
+%\renewcommand\thechapter{\@arabic\c@chapter}
+%\renewcommand\thesection{\@arabic\c@section}
+%\gappto\russian@capsformat{\renewcommand{\postsection}{\@aftersepkern}}
+%\renewcommand\thesubsection{\@arabic\c@section.\@arabic\c@subsection}
+%\gappto\russian@capsformat{\renewcommand{\postsubsection}{\@aftersepkern}}
+%\renewcommand\thesubsubsection{\@arabic\c@section.\@arabic\c@subsection.\@arabic\c@subsubsection}
+%\gappto\russian@capsformat{\renewcommand{\postsubsubsection}{\@aftersepkern}}
 %\makeatother
 
+\newcounter{secnum}
 
+\setcounter{secnum}{2}
+
+\ifnumequal{\value{secnum}}{1}{%
+% Убираем точки после цифры в главах и подглавах
+\renewcommand\thechapter{\arabic{chapter}}
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\arabic{section}.\arabic{subsection}}
+\renewcommand\thesubsubsection{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
+}{}
+
+\ifnumequal{\value{secnum}}{2}{%
+% Убираем точки после цифры в главах и подглавах
+\renewcommand\thechapter{}
+\renewcommand\thesection{}
+\renewcommand\thesubsection{}
+\renewcommand\thesubsubsection{}
+}{}
+
+% Задаем отступ от нумерации названия глав и подглав в Содержании
+\makeatletter
+\newcommand{\l@likechapter}{\@dottedtocline{1}{1em}{1em}}
+\renewcommand{\l@chapter}{\@dottedtocline{1}{1em}{1em}}
+\renewcommand*\l@section{\@dottedtocline{1}{1em}{1em}}%
+\renewcommand*\l@subsection{\@dottedtocline{1}{2.0em}{1.7em}}%
+\renewcommand*\l@subsubsection{\@dottedtocline{1}{3.6em}{2.4em}}%
+\newcommand*\l@subsubsubsection{\@dottedtocline{1}{6em}{2.4em}}%
+\makeatother
 
 % Настройка Содержания
 \gappto\captionsrussian{\renewcommand{\contentsname}{Оглавление}}
@@ -175,7 +232,6 @@ singlelinecheck=false
 \setlength\belowcaptionskip{1\p@}
 \makeatother
 
-
 % Убираем связанность номера формулы с номером главы/раздела 0 --- есть зависимость от номера главы, 1 --- нет.
 \newcounter{contnumfig}
 
@@ -184,7 +240,8 @@ singlelinecheck=false
 \ifnumequal{\value{contnumfig}}{1}{%
 \renewcommand{\thefigure}{\arabic{figure}}
 \renewcommand{\thetable}{\arabic{table}}
-\renewcommand{\theequation}{\arabic{equation}}}{}
+\renewcommand{\theequation}{\arabic{equation}}
+}{}
 
 % Переопределение списков itemize и enumerate, убирающее расстояния между строками и абзацами
 \makeatletter
@@ -223,55 +280,6 @@ singlelinecheck=false
 \renewcommand\thesubsubsubsection{\thesubsubsection .\@arabic\c@subsubsubsection}
  \makeatother
  
- 
-% Названия глав располагаем с красной строки и устанавливаем их размер и отступы до и после названия
-\makeatletter
-%\renewcommand\section{
-%\@startsection {section}{1}{\parindent}{\z@}%
-%{2ex \@plus.2ex}%
-%{\hyphenpenalty=10000\normalfont\normalsize
-%\vspace{4ex}
-%\MakeUppercase}
-%}
-\def\section{\@dblarg\@section}
-\def\@section[#1]#2{\refstepcounter{section}%
-        {\newpage\nobreak\hspace*{.5cm}\raggedright
-        \llap{\thesection\space\space}\uppercase{#2}}%
-        \addcontentsline{toc}{section}{\thesection\space #1}\par\nobreak}
-\renewcommand{\subsection}[1]{\refstepcounter{subsection}
-        \vspace{15pt plus 7pt minus 3pt}\nobreak\par%
-        {\thesubsection\space #1}%
-        \addcontentsline{toc}{subsection}{\thesubsection\space #1}%
-        \par\vspace{2ex}}
-\renewcommand{\subsubsection}[1]{\refstepcounter{subsubsection}
-        \vspace{15pt plus 7pt minus 3pt}\nobreak\par%
-        {\thesubsubsection\space #1}%
-        \addcontentsline{toc}{subsubsection}{\thesubsubsection\space #1}%
-        \par\vspace{2ex}}
-
-\makeatother
-
-% Убираем точки после цифры в главах и подглавах
-\makeatletter
-\renewcommand\thechapter{\@arabic\c@chapter}
-\renewcommand\thesection{\@arabic\c@section}
-\gappto\russian@capsformat{\renewcommand{\postsection}{\@aftersepkern}}
-\renewcommand\thesubsection{\@arabic\c@section.\@arabic\c@subsection}
-\gappto\russian@capsformat{\renewcommand{\postsubsection}{\@aftersepkern}}
-\renewcommand\thesubsubsection{\@arabic\c@section.\@arabic\c@subsection.\@arabic\c@subsubsection}
-\gappto\russian@capsformat{\renewcommand{\postsubsubsection}{\@aftersepkern}}
-\makeatother
-
-
-% Задаем отступ от нумерации названия глав и подглав в Содержании
-\makeatletter
-\newcommand{\l@likechapter}{\@dottedtocline{1}{1em}{1em}}
-\renewcommand{\l@chapter}{\@dottedtocline{1}{1em}{1em}}
-\renewcommand*\l@section{\@dottedtocline{1}{1em}{1em}}%
-\renewcommand*\l@subsection{\@dottedtocline{1}{2.0em}{1.7em}}%
-\renewcommand*\l@subsubsection{\@dottedtocline{1}{3.6em}{2.4em}}%
-\newcommand*\l@subsubsubsection{\@dottedtocline{1}{6em}{2.4em}}%
-\makeatother
 
 
 % Работа с датой
