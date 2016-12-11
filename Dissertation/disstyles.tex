@@ -49,18 +49,18 @@
 %\renewcommand{\cftchapterfont}{}                       % нежирные названия глав в оглавлении
 
 \ifnumgreater{\value{headingdelim}}{0}{%
-    \renewcommand\cftchapteraftersnum{.\space}       % добавляет точку с пробелом после номера раздела в оглавлении
+    \renewcommand\cftchapteraftersnum{.\;}       % добавляет точку с пробелом после номера раздела в оглавлении
 }{}
 \ifnumgreater{\value{headingdelim}}{1}{%
-    \renewcommand\cftsectionaftersnum{.\space}       % добавляет точку с пробелом после номера подраздела в оглавлении
-    \renewcommand\cftsubsectionaftersnum{.\space}    % добавляет точку с пробелом после номера подподраздела в оглавлении
-    \renewcommand\cftsubsubsectionaftersnum{.\space} % добавляет точку с пробелом после номера подподподраздела в оглавлении
+    \renewcommand\cftsectionaftersnum{.\;}       % добавляет точку с пробелом после номера подраздела в оглавлении
+    \renewcommand\cftsubsectionaftersnum{.\;}    % добавляет точку с пробелом после номера подподраздела в оглавлении
+    \renewcommand\cftsubsubsectionaftersnum{.\;} % добавляет точку с пробелом после номера подподподраздела в оглавлении
     \AtBeginDocument{% без этого polyglossia сама всё переопределяет
         \setsecnumformat{\csname the#1\endcsname.\space}
     }
 }{%
     \AtBeginDocument{% без этого polyglossia сама всё переопределяет
-        \setsecnumformat{\csname the#1\endcsname\quad}
+        \setsecnumformat{\csname the#1\endcsname\;}
     }
 }
 
@@ -105,9 +105,9 @@
     \renewcommand*{\chaptitlefont}{\basegostsectionfont}
     \renewcommand*{\chapterheadstart}{}
     \ifnumgreater{\value{headingdelim}}{0}{%
-        \renewcommand*{\afterchapternum}{.\space}   % добавляет точку с пробелом после номера раздела
+        \renewcommand*{\afterchapternum}{.\;}   % добавляет точку с пробелом после номера раздела
     }{%
-        \renewcommand*{\afterchapternum}{\quad}     % добавляет \quad после номера раздела
+        \renewcommand*{\afterchapternum}{\;}     % добавляет \quad после номера раздела
     }
     \renewcommand*{\printchapternum}{\hdngaligni\hdngalign\chapnumfont \thechapter}
     \renewcommand*{\printchaptername}{}
