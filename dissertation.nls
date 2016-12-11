@@ -3,8 +3,8 @@
  \nomgroup{R}
 
   \item [{НИИИ}]\begingroup \nomdescr {Формула такая формула, ололо}\nomeqref {1.0}
-		\nompageref{13}
+		\nompageref{14}
   \item [{ОЛОЛ}]\begingroup \nomdescr {Это ссылки конечно же.}\nomeqref {1.0}
-		\nompageref{12}
+		\nompageref{13}
 
 \end{thenomenclature}
