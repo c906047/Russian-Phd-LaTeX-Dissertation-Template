@@ -3,16 +3,16 @@
  \nomgroup{R}
 
   \item [{API}]\begingroup \nomdescr {Application Interfaces}\nomeqref {1.0}
-		\nompageref{10}
+		\nompageref{13}
   \item [{ARIS}]\begingroup \nomdescr {Architecture of Integrated Information Systems}\nomeqref {1.0}
-		\nompageref{10}
+		\nompageref{13}
   \item [{DDS}]\begingroup \nomdescr {Data Distribution Service}\nomeqref {1.0}
-		\nompageref{10}
+		\nompageref{13}
   \item [{ИМ}]\begingroup \nomdescr {Имитационное моделирование}\nomeqref {1.0}
 		\nompageref{8}
   \item [{НИИИ}]\begingroup \nomdescr {Формула такая формула, ололо}\nomeqref {1.0}
-		\nompageref{14}
+		\nompageref{16}
   \item [{ОЛОЛ}]\begingroup \nomdescr {Это ссылки конечно же.}\nomeqref {1.0}
-		\nompageref{14}
+		\nompageref{15}
 
 \end{thenomenclature}
