@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    383823,       8061]
-NotebookOptionsPosition[    353813,       7471]
-NotebookOutlinePosition[    383251,       8042]
-CellTagsIndexPosition[    383208,       8039]
+NotebookDataLength[    379682,       7951]
+NotebookOptionsPosition[    349749,       7364]
+NotebookOutlinePosition[    379187,       7935]
+CellTagsIndexPosition[    379144,       7932]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -32,13 +32,13 @@ Cell[BoxData[{
   "\[IndentingNewLine]", 
   RowBox[{"(*", 
    RowBox[{
-    RowBox[{"LaunchKernels", "[", "4", "]"}], ";"}], "*)"}], 
-  "\[IndentingNewLine]", 
+    RowBox[{"LaunchKernels", "[", "4", "]"}], ";"}], "*)"}], "\n", 
   RowBox[{"(*", 
    RowBox[{
     RowBox[{"ParallelEvaluate", "[", 
      RowBox[{
-      RowBox[{"$HistoryLength", "=", "0"}], ";"}], "]"}], ";"}], "*)"}], "\n", 
+      RowBox[{"$HistoryLength", "=", "0"}], ";"}], "]"}], ";"}], "*)"}], 
+  "\[IndentingNewLine]", 
   RowBox[{"(*", 
    RowBox[{
     RowBox[{
@@ -4826,12 +4826,12 @@ Cell[BoxData[{
 Cell[BoxData[
  TagBox[
   StyleBox[
-   DynamicModuleBox[{$CellContext`c$$ = 200, $CellContext`np$$ = 
-    50, $CellContext`print$$ = False, $CellContext`sr$$ = 
-    1, $CellContext`v$$ = 1, $CellContext`\[CapitalDelta]T$$ = 1, 
-    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
-    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
-    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+   DynamicModuleBox[{$CellContext`c$$ = 10, $CellContext`np$$ = 
+    3, $CellContext`print$$ = False, $CellContext`sr$$ = 1, $CellContext`v$$ =
+     1, $CellContext`\[CapitalDelta]T$$ = 1, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
        Hold[$CellContext`sr$$], 1, 
        "\:041a\:043e\:043b\:0438\:0447\:0435\:0441\:0442\:0432\:043e \:0441\
 \:0435\:0440\:0438\:0439"}, 1, 100, 1}, {{
@@ -4853,25 +4853,24 @@ Cell[BoxData[
        "\[CapitalDelta]T random"}}, {{
        Hold[$CellContext`print$$], False, 
        "\:041f\:0435\:0447\:0430\:0442\:044c"}, {True, False}}}, 
-    Typeset`size$$ = {607., {171., 176.}}, Typeset`update$$ = 
-    3.688499617783534`16.3194247319511*^9, Typeset`initDone$$, 
-    Typeset`skipInitDone$$ = True, $CellContext`sr$777$$ = 
-    0, $CellContext`np$782$$ = 0, $CellContext`c$783$$ = 
-    0, $CellContext`v$784$$ = False, $CellContext`\[CapitalDelta]T$785$$ = 
-    False, $CellContext`print$786$$ = False}, 
+    Typeset`size$$ = {607., {177., 181.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True, $CellContext`sr$886$$ =
+     0, $CellContext`np$887$$ = 0, $CellContext`c$888$$ = 
+    0, $CellContext`v$889$$ = False, $CellContext`\[CapitalDelta]T$890$$ = 
+    False, $CellContext`print$891$$ = False}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      1, StandardForm, 
       "Variables" :> {$CellContext`c$$ = 10, $CellContext`np$$ = 
         3, $CellContext`print$$ = False, $CellContext`sr$$ = 
         1, $CellContext`v$$ = 1, $CellContext`\[CapitalDelta]T$$ = 1}, 
       "ControllerVariables" :> {
-        Hold[$CellContext`sr$$, $CellContext`sr$777$$, 0], 
-        Hold[$CellContext`np$$, $CellContext`np$782$$, 0], 
-        Hold[$CellContext`c$$, $CellContext`c$783$$, 0], 
-        Hold[$CellContext`v$$, $CellContext`v$784$$, False], 
+        Hold[$CellContext`sr$$, $CellContext`sr$886$$, 0], 
+        Hold[$CellContext`np$$, $CellContext`np$887$$, 0], 
+        Hold[$CellContext`c$$, $CellContext`c$888$$, 0], 
+        Hold[$CellContext`v$$, $CellContext`v$889$$, False], 
         Hold[$CellContext`\[CapitalDelta]T$$, \
-$CellContext`\[CapitalDelta]T$785$$, False], 
-        Hold[$CellContext`print$$, $CellContext`print$786$$, False]}, 
+$CellContext`\[CapitalDelta]T$890$$, False], 
+        Hold[$CellContext`print$$, $CellContext`print$891$$, False]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
@@ -5648,7 +5647,7 @@ $CellContext`graphkp, $CellContext`graphg}, PlotLabel ->
           "\:041f\:0435\:0447\:0430\:0442\:044c"}, {True, False}}}, 
       "Options" :> {ContinuousAction -> None, ControlPlacement -> Bottom}, 
       "DefaultOptions" :> {}],
-     ImageSizeCache->{652., {280., 285.}},
+     ImageSizeCache->{652., {285., 290.}},
      SingleEvaluation->True],
     Deinitialization:>None,
     DynamicModuleValues:>{},
@@ -5659,12 +5658,10 @@ $CellContext`graphkp, $CellContext`graphg}, PlotLabel ->
    Deployed->True,
    StripOnInput->False],
   Manipulate`InterpretManipulate[1]]], "Output",
- CellChangeTimes->{3.6884019235524883`*^9}],
+ CellChangeTimes->{3.688401923941225*^9, 3.693155630985611*^9}],
 
-Cell[BoxData["36193904"], "Output",
- CellChangeTimes->{3.688401923941225*^9}],
-
-Cell[CellGroupData[{
+Cell[BoxData["46826112"], "Output",
+ CellChangeTimes->{3.688401923941225*^9, 3.6931556313426647`*^9}],
 
 Cell[BoxData[
  TagBox[GridBox[{
@@ -5686,114 +5683,12 @@ Cell[BoxData[
       Background->RGBColor[0.935, 0.97, 1.],
       StripOnInput->False]},
     {"\<\"\:041a\:043e\:043b\:0438\:0447\:0435\:0441\:0442\:0432\:043e \:043f\
-\:0440\:043e\:0446\:0435\:0441\:0441\:043e\:0432\"\>", "50", 
-     "\[SpanFromLeft]", "\[SpanFromLeft]", "\[SpanFromLeft]"},
+\:0440\:043e\:0446\:0435\:0441\:0441\:043e\:0432\"\>", "3", "\[SpanFromLeft]",
+      "\[SpanFromLeft]", "\[SpanFromLeft]"},
     {"\<\"\:041a-\:0432\:043e \:0441\:0435\:0440\:0438\:0439 / \:041a-\:0432\
 \:043e \:0448\:0430\:0433\:043e\:0432\"\>", 
      TagBox[GridBox[{
-        {"1", "\<\"/\"\>", "200"}
-       },
-       AutoDelete->False,
-       GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-      "Grid"], "\[SpanFromLeft]", "\[SpanFromLeft]", "\[SpanFromLeft]"},
-    {"\<\"\[CapitalDelta]T\"\>", 
-     TagBox[GridBox[{
-        {"\<\"\[LessEqual]50%\"\>", 
-         "50", "\<\"%\"\>", "\<\"/\"\>", "\<\"\[Infinity]\"\>", 
-         "50", "\<\"%\"\>"}
-       },
-       AutoDelete->False,
-       GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-      "Grid"], "\[SpanFromLeft]", "\[SpanFromLeft]", "\[SpanFromLeft]"},
-    {"\<\"P \:043f\:043e\:0441\:044b\:043b\:043a\:0438 \:0441\:043e\:043e\
-\:0431\:0449\:0435\:043d\:0438\:0439\"\>", 
-     TagBox[GridBox[{
-        {"\<\"<0.5\"\>", "52", "\<\"%\"\>", "\<\"/\"\>", "\<\"\[Rule]1\"\>", 
-         "48", "\<\"%\"\>"}
-       },
-       AutoDelete->False,
-       GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-      "Grid"], "\[SpanFromLeft]", "\[SpanFromLeft]", "\[SpanFromLeft]"},
-    {
-     ItemBox["\<\"\:041f\:0440\:043e\:0434\:0432\:0438\:0436\:0435\:043d\:0438\
-\:0435 \:0432\:0440\:0435\:043c\:0435\:043d\:0438\"\>",
-      Background->RGBColor[1., 0.925, 0.925],
-      StripOnInput->False], 
-     ItemBox["53335",
-      Background->RGBColor[1., 0.925, 0.925],
-      StripOnInput->False], 
-     ItemBox["82097",
-      Background->RGBColor[1., 0.925, 0.925],
-      StripOnInput->False], 
-     ItemBox["67314",
-      Background->RGBColor[1., 0.925, 0.925],
-      StripOnInput->False], 
-     ItemBox["78978",
-      Background->RGBColor[1., 0.925, 0.925],
-      StripOnInput->False]},
-    {"\<\"\:041a\:043e\:043b-\:0432\:043e \
-\:043f\:0440\:043e\:0441\:0442\:043e\:0435\:0432\"\>", "26723", 
-     "48500", "\<\"\"\>", "23273"},
-    {"\<\"\:041a\:043e\:043b-\:0432\:043e \
-\:043e\:0442\:043a\:0430\:0442\:043e\:0432\"\>", "\<\"\"\>", "4033", "19855", 
-     "2618"},
-    {
-     ItemBox["\<\"\:042d\:0444\:0444\:0435\:043a\:0442\:0438\:0432\:043d\:043e\
-\:0441\:0442\:044c\"\>",
-      Background->RGBColor[1., 0.925, 0.925],
-      StripOnInput->False], 
-     ItemBox[
-      RowBox[{
-       RowBox[{"-", "35"}], " ", "\<\"%\"\>"}],
-      Background->RGBColor[1., 0.925, 0.925],
-      StripOnInput->False], 
-     ItemBox["\<\"100%\"\>",
-      Background->RGBColor[1., 0.925, 0.925],
-      StripOnInput->False], 
-     ItemBox[
-      RowBox[{
-       RowBox[{"-", "18"}], " ", "\<\"%\"\>"}],
-      Background->RGBColor[1., 0.925, 0.925],
-      StripOnInput->False], 
-     ItemBox[
-      RowBox[{
-       RowBox[{"-", "4"}], " ", "\<\"%\"\>"}],
-      Background->RGBColor[1., 0.925, 0.925],
-      StripOnInput->False]}
-   },
-   AutoDelete->False,
-   GridBoxAlignment->{"Columns" -> {Left}, "Rows" -> {Center}},
-   GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
-   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-  "Grid"]], "Print",
- CellChangeTimes->{3.688488682381257*^9}],
-
-Cell[BoxData[
- TagBox[GridBox[{
-    {
-     ItemBox["\<\"\:0425\:0430\:0440\:0430\:043a\:0442\:0435\:0440\:0438\:0441\
-\:0442\:0438\:043a\:0438 / \:0410\:0421\"\>",
-      Background->RGBColor[0.935, 0.97, 1.],
-      StripOnInput->False], 
-     ItemBox["\<\"\:041a\:0410\:0421\"\>",
-      Background->RGBColor[0.935, 0.97, 1.],
-      StripOnInput->False], 
-     ItemBox["\<\"\:041a\:0410\:0421+\"\>",
-      Background->RGBColor[0.935, 0.97, 1.],
-      StripOnInput->False], 
-     ItemBox["\<\"\:041e\:0410\:0421\"\>",
-      Background->RGBColor[0.935, 0.97, 1.],
-      StripOnInput->False], 
-     ItemBox["\<\"\:0413\:0410\:0421\"\>",
-      Background->RGBColor[0.935, 0.97, 1.],
-      StripOnInput->False]},
-    {"\<\"\:041a\:043e\:043b\:0438\:0447\:0435\:0441\:0442\:0432\:043e \:043f\
-\:0440\:043e\:0446\:0435\:0441\:0441\:043e\:0432\"\>", "50", 
-     "\[SpanFromLeft]", "\[SpanFromLeft]", "\[SpanFromLeft]"},
-    {"\<\"\:041a-\:0432\:043e \:0441\:0435\:0440\:0438\:0439 / \:041a-\:0432\
-\:043e \:0448\:0430\:0433\:043e\:0432\"\>", 
-     TagBox[GridBox[{
-        {"1", "\<\"/\"\>", "200"}
+        {"1", "\<\"/\"\>", "10"}
        },
        AutoDelete->False,
        GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
@@ -5809,24 +5704,23 @@ Cell[BoxData[
 \:0435 \:0432\:0440\:0435\:043c\:0435\:043d\:0438\"\>",
       Background->RGBColor[1., 0.925, 0.925],
       StripOnInput->False], 
-     ItemBox["669",
+     ItemBox["8",
       Background->RGBColor[1., 0.925, 0.925],
       StripOnInput->False], 
-     ItemBox["900",
+     ItemBox["18",
       Background->RGBColor[1., 0.925, 0.925],
       StripOnInput->False], 
-     ItemBox["963",
+     ItemBox["26",
       Background->RGBColor[1., 0.925, 0.925],
       StripOnInput->False], 
      ItemBox["0",
       Background->RGBColor[1., 0.925, 0.925],
       StripOnInput->False]},
     {"\<\"\:041a\:043e\:043b-\:0432\:043e \
-\:043f\:0440\:043e\:0441\:0442\:043e\:0435\:0432\"\>", "38022", 
-     "50353", "\<\"\"\>", "0"},
+\:043f\:0440\:043e\:0441\:0442\:043e\:0435\:0432\"\>", "146", 
+     "172", "\<\"\"\>", "0"},
     {"\<\"\:041a\:043e\:043b-\:0432\:043e \
-\:043e\:0442\:043a\:0430\:0442\:043e\:0432\"\>", "\<\"\"\>", "0", "28261", 
-     "0"},
+\:043e\:0442\:043a\:0430\:0442\:043e\:0432\"\>", "\<\"\"\>", "0", "118", "0"},
     {
      ItemBox["\<\"\:042d\:0444\:0444\:0435\:043a\:0442\:0438\:0432\:043d\:043e\
 \:0441\:0442\:044c\"\>",
@@ -5834,12 +5728,12 @@ Cell[BoxData[
       StripOnInput->False], 
      ItemBox[
       RowBox[{
-       RowBox[{"-", "31"}], " ", "\<\"%\"\>"}],
+       RowBox[{"-", "68"}], " ", "\<\"%\"\>"}],
       Background->RGBColor[1., 0.925, 0.925],
       StripOnInput->False], 
      ItemBox[
       RowBox[{
-       RowBox[{"-", "7"}], " ", "\<\"%\"\>"}],
+       RowBox[{"-", "31"}], " ", "\<\"%\"\>"}],
       Background->RGBColor[1., 0.925, 0.925],
       StripOnInput->False], 
      ItemBox["\<\"100%\"\>",
@@ -5854,8 +5748,7 @@ Cell[BoxData[
    GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
    GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
   "Grid"]], "Print",
- CellChangeTimes->{3.688489016170928*^9}]
-}, Open  ]]
+ CellChangeTimes->{3.6931556322478228`*^9}]
 }, Open  ]]
 }, Open  ]],
 
@@ -8045,23 +7938,20 @@ Cell[CellGroupData[{
 Cell[580, 22, 110, 1, 35, "Subsubsection"],
 Cell[CellGroupData[{
 Cell[715, 27, 214261, 4796, 19724, "Input"],
-Cell[214979, 4825, 42526, 836, 582, "Output"],
-Cell[257508, 5663, 77, 1, 28, "Output"],
-Cell[CellGroupData[{
-Cell[257610, 5668, 4013, 100, 176, "Print"],
-Cell[261626, 5770, 3493, 86, 172, "Print"]
-}, Open  ]]
+Cell[214979, 4825, 42503, 835, 592, "Output"],
+Cell[257485, 5662, 101, 1, 28, "Output"],
+Cell[257589, 5665, 3478, 85, 172, "Print"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[265180, 5863, 233, 4, 35, "Subsubsection"],
-Cell[265416, 5869, 11913, 167, 631, "Input"]
+Cell[261116, 5756, 233, 4, 35, "Subsubsection"],
+Cell[261352, 5762, 11913, 167, 631, "Input"]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[277366, 6041, 186, 2, 29, "Subsubsection"],
-Cell[277555, 6045, 31219, 517, 847, "Input"],
-Cell[308777, 6564, 38254, 737, 2293, "Input"],
-Cell[347034, 7303, 6763, 165, 522, "Input"]
+Cell[273302, 5934, 186, 2, 29, "Subsubsection"],
+Cell[273491, 5938, 31219, 517, 847, "Input"],
+Cell[304713, 6457, 38254, 737, 2293, "Input"],
+Cell[342970, 7196, 6763, 165, 522, "Input"]
 }, Open  ]]
 }
 ]
