@@ -11,8 +11,10 @@
   \item [{ИМ}]\begingroup \nomdescr {Имитационное моделирование}\nomeqref {1.0}
 		\nompageref{9}
   \item [{НИИИ}]\begingroup \nomdescr {Формула такая формула, ололо}\nomeqref {1.0}
-		\nompageref{17}
+		\nompageref{19}
   \item [{ОЛОЛ}]\begingroup \nomdescr {Это ссылки конечно же.}\nomeqref {1.0}
-		\nompageref{16}
+		\nompageref{19}
+  \item [{ОС}]\begingroup \nomdescr {операционная система}\nomeqref {1.0}
+		\nompageref{17}
 
 \end{thenomenclature}
